@@ -1,9 +1,9 @@
 package org.example;
 import java.util.Scanner;
+import java.text.NumberFormat;
 
 public class Main{
     public static void main(String[] args){
-        
         Scanner input = new Scanner(System.in);
 
         System.out.println("(1) Further Substring Fun");
@@ -87,6 +87,7 @@ public class Main{
                 break;
 
             case 7:
+                NumberFormat currency = NumberFormat.getCurrencyInstance();
                 while(true){
                     System.out.print("Weight of Order:\n");
                     double weight = Double.parseDouble(input.nextLine());
@@ -98,12 +99,12 @@ public class Main{
                     if(weight>10){
                         cost+=(weight-10)*0.25;
                     }
-                    System.out.printf("Shipping Cost: $%.2f\n\n",cost);
+                    System.out.println("Shipping Cost: "+currency.format(cost)+"\n");
                 }
                 break;
 
             default:
-                System.out.println("Invalid choice");
+                System.out.println("Invalid choice.");
         }
 
         input.close();
